@@ -3,10 +3,10 @@ name: Post welcome comment
 on:
   pull_request:
     types:
-      - opened  # 👈 Correct indentation
+      - opened
 
 permissions:
-  pull-requests: write  # 👈 Corrected the typo
+  pull-requests: write
 
 jobs:
   comment:
