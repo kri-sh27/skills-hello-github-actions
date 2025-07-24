@@ -2,24 +2,12 @@ name: Post welcome comment
 
 on:
   pull_request:
-    types:
-      - opened
+    types: [opened]
 
 permissions:
   pull-requests: write
 
 jobs:
-  comment:
+  welcome:
+    name: Post welcome comment
     runs-on: ubuntu-latest
-    steps:
-      - name: Comment on the PR
-        uses: actions/github-script@v7
-        with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          script: |
-            github.rest.issues.createComment({
-              issue_number: context.issue.number,
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              body: "👋 Thanks for opening this pull request!"
-            })
